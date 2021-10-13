@@ -1,20 +1,37 @@
 import requests
+import os
+import json
 
-#Specify a URL that resolves to your workspace
-URL = "http://127.0.0.1/"
+with open("config.json", "r") as f:
+    config = json.load(f)
+logs_folder_path = config["logs_folder_path"]
 
+# Specify a URL that resolves to your workspace
+URL = "http://127.0.0.1:8000"
 
+# http://localhost:8000/prediction?datafile=testdata/testdata.csv
+# Call each API endpoint and store the responses
+req_str = URL + "/prediction?datafile=testdata/testdata.csv"
+print("API call 1 : {}".format(req_str))
+response1 = requests.get(req_str).content
 
-#Call each API endpoint and store the responses
-response1 = #put an API call here
-response2 = #put an API call here
-response3 = #put an API call here
-response4 = #put an API call here
+req_str = URL + "/scoring"
+print("API call 2 : {}".format(req_str))
+response2 = requests.get(req_str).content
 
-#combine all API responses
-responses = #combine reponses here
+req_str = URL + "/summarystats"
+print("API call 3 : {}".format(req_str))
+response3 = requests.get(req_str).content
 
-#write the responses to your workspace
+req_str = URL + "/diagnostics"
+print("API call 4 : {}".format(req_str))
+response4 = requests.get(req_str).content
 
+# combine all API responses
+responses = b"\n\n".join([response1, response2, response3, response4])
 
-
+# write the responses to your workspace
+# write the combined outputs to a file call apireturns.txt.
+log_file = os.getcwd() + logs_folder_path + "apireturns.txt"
+with open(log_file, "wb") as file:
+    file.write(responses)
