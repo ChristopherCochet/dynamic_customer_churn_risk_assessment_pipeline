@@ -198,7 +198,7 @@ Automatically generates plots and documents that report on model metrics. sing p
 ```
 
 **Simple Confusion Matrix**
-<img src="images/lr_confusionmatrix.png width="600">
+<img src="images/lr_confusionmatrix.png">
 
 ## 5. Model API
 Provides a set of Flask API endpoints that can return model predictions and metrics.
@@ -217,14 +217,15 @@ The different flask endpoints can be tested using the ``apicalls.py `` file:
 ```
 
 ## 6. Process Automation
-Uses a script and cron job (calls the ``cron.py`` file) that automatically run all previous steps and model retraining and re-deployment logic at regular 10 minute intervals. 
-
-**Business Logic**
-<img src="images/redeployment_logic.JPG" width="600">
+Uses a script and cron job (calls the ``cron.py`` file) that automatically run all previous steps and model re-training and re-deployment logic at regular 10 minute intervals. 
 
 ```bash
 > python fullprocess.py
 ```
+
+**Automated risk churn model re-training and re-deployment logicc**
+<img src="images/redeployment_logic.JPG" width="600">
+
 
 ```bash
 > crontab -l  
@@ -242,7 +243,7 @@ BASH_ENV=~/.zshrc
 
 Output of these cron jobs are stored in teh ``cron.txt`` file store in the ``logs`` folder.
 
-**Example**
+**Crontab Output Example**
 ```
 *** Full process - 2021-10-16 14:49:02.329268 started!
 *** Full process - config files read ...     

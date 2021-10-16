@@ -2109,3 +2109,63 @@ Reporting - generate_confusion_matrix saving confusion matrix to /home/cmc265/ud
 - old files:['dataset2.csv', 'dataset1.csv'] 
 - new files:[] 
 *** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 16:29:02.693375 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 16:30:02.865056 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 16:31:03.191047 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 16:32:02.484138 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 16:33:02.729577 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
