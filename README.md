@@ -203,13 +203,18 @@ Automatically generates plots and documents that report on model metrics. sing p
 ## 5. Model API
 Provides a set of Flask API endpoints that can return model predictions and metrics.
 
-* Prediction endpoint: ``/prediction`` which takes a dataset's file location as its input, and returns the predictions
+<img src="images/flask.png">
 
-* Scoring Endpoint ``/scoring`` which returns the score of the deployed model
+**What is Flask ?**
+Flask is python a web framework which provides you with tools, libraries and technologies that allow us to build a web application which provide services (hosted on endpoints) such as providing model predictions.
 
-* Summary Statistics Endpoint ``/summarystats`` which returns means, medians, and modes for each feature
+* ``/prediction``: Prediction endpoint  which takes a dataset's file location as its input, and returns the predictions
 
-* Diagnostics Endpoint ``/diagnostics`` which run the timing, missing data, and dependency check functions
+* ``/scoring``: Scoring endpoint which returns the score of the deployed model
+
+* ``/summarystats``:Summary Statistics endpoint which returns means, medians, and modes for each feature
+
+* ``/diagnostics``: Diagnostics endpoint which run the timing, missing data, and dependency check functions
 
 The different flask endpoints can be tested using the ``apicalls.py `` file:
 ```bash
@@ -223,7 +228,7 @@ Uses a script and cron job (calls the ``cron.py`` file) that automatically run a
 > python fullprocess.py
 ```
 
-**Automated risk churn model re-training and re-deployment logicc**
+**Automated risk churn model re-training and re-deployment logic**
 <img src="images/redeployment_logic.JPG" width="600">
 
 
