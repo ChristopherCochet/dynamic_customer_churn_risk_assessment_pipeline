@@ -2433,3 +2433,39 @@ Reporting - generate_confusion_matrix saving confusion matrix to /home/cmc265/ud
 - old files:['dataset2.csv', 'dataset1.csv'] 
 - new files:[] 
 *** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 16:56:02.113171 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 16:57:02.545252 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 16:58:02.874890 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !

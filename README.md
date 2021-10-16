@@ -6,6 +6,8 @@ In addition, the pipeline regularly monitors the model's performance to ensure t
 
 The focus of this project is the end to end workflow and process while modelling here takes a back seat.
 
+<img src="images/dynamic_risk_assessment.JPG">
+
 Source: [Udacity - Machine Learning DevOps Engineer Nano-degree](https://www.udacity.com/course/machine-learning-dev-ops-engineer-nanodegree--nd0821)
 
 ---
@@ -29,6 +31,7 @@ The different component of the pipeline are:
 ├── apicalls.py
 ├── app.py
 ├── config.json
+├── cron.config
 ├── cron.py
 ├── deployment.py
 ├── diagnostics.py
