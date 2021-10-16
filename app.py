@@ -56,8 +56,8 @@ def diagnose():
     # check timing and percent NA values
     # run the timing, missing data, and dependency check functions
     res = []
-    timigs = diagnostics.execution_time()
-    res.append(timigs)
+    timings = diagnostics.execution_time()
+    res.append(timings)
     missing_val = diagnostics.dataframe_missing_data()
     res.append(missing_val)
     dependencies = diagnostics.outdated_packages_list()

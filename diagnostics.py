@@ -62,7 +62,7 @@ def dataframe_summary():
     print("Diagnostics - dataframe_summary ...")
 
     # summary statistics here - means, medians, and standard deviation
-    statistics_list = [data_df[features_var].mean().to_list()]
+    statistics_list = data_df[features_var].mean().to_list()
     statistics_list.append(data_df[features_var].median().to_list())
     statistics_list.append(data_df[features_var].std().to_list())
 
@@ -111,14 +111,14 @@ def execution_time():
 def outdated_packages_list():
     # get a list of outdated dependencies
     outdated = subprocess.check_output(["pip", "list", "--outdated"])
-    print("Diagnostics - outdated_packages_list {}...".format(outdated))
+    print("Diagnostics - outdated_packages_list {}...".format(outdated.decode("utf-8")))
 
     # track outdates packages file
     log_file = os.getcwd() + logs_folder_path + "outdated.txt"
     with open(log_file, "wb") as file:
         file.write(outdated)
 
-    return outdated
+    return outdated.decode("utf-8")
 
 
 if __name__ == "__main__":

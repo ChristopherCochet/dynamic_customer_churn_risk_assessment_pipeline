@@ -27,14 +27,27 @@ def store_model_into_pickle():
         "cp "
         + os.getcwd()
         + logs_folder_path
-        + "* "
+        + "ingestedfiles.txt "
         + os.getcwd()
         + prod_deployment_path
     )
     print(cmd)
     os.system(cmd)
 
-    cmd = "cp " + os.getcwd() + model_path + "* " + os.getcwd() + prod_deployment_path
+    cmd = (
+        "cp "
+        + os.getcwd()
+        + logs_folder_path
+        + "latestscore.txt "
+        + os.getcwd()
+        + prod_deployment_path
+    )
+    print(cmd)
+    os.system(cmd)
+
+    cmd = (
+        "cp " + os.getcwd() + model_path + "*.pkl " + os.getcwd() + prod_deployment_path
+    )
     print(cmd)
     os.system(cmd)
 

@@ -1,11 +1,7 @@
 import pickle
 from sklearn.metrics import plot_confusion_matrix
-from sklearn.model_selection import train_test_split
 import pandas as pd
-import numpy as np
-from sklearn import metrics
 import matplotlib.pyplot as plt
-import seaborn as sns
 import json
 import os
 
@@ -44,7 +40,10 @@ def generate_confusion_matrix():
     y = test_df[target_var]
 
     # plot and save confusion matrix
-    cm_file = os.getcwd() + model_path + "confusionmatrix.png"
+    if model_path == "/models/":
+        cm_file = os.getcwd() + model_path + "confusionmatrix2.png"
+    else:
+        cm_file = os.getcwd() + model_path + "confusionmatrix.png"
     print(
         "Reporting - generate_confusion_matrix saving confusion matrix to {}".format(
             cm_file

@@ -37,7 +37,7 @@ def merge_multiple_dataframe():
     output_path = os.getcwd() + output_folder_path
     output_file = output_path + "finaldata.csv"
     print(
-        "Ingestion - merge_multiple_dataframe writing depuplicated output to {}".format(
+        "Ingestion - merge_multiple_dataframe writing de-duplicated output to {}".format(
             output_file
         )
     )

@@ -1,0 +1,959 @@
+
+
+*** Full process - 2021-10-16 13:41:02.599659 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 13:42:02.703095 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 13:44:02.907621 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 13:46:01.976296 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 13:48:02.052916 started!
+*** Full process - config files read ...     
+- input_folder_path:/sourcedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+*** Full process - new files found to ingest ... ['dataset5.csv', 'dataset3.csv', 'dataset4.csv']
+Ingestion - merge_multiple_dataframe for directories ['/sourcedata/']
+Ingestion - merge_multiple_dataframe merging files ['dataset5.csv', 'dataset3.csv', 'dataset4.csv']
+Ingestion - merge_multiple_dataframe writing de-duplicated output to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/ingesteddata/finaldata.csv
+*** Full process - checking model score ... old score 0.5714285714285715 
+*** Full process - re-training model ...
+Training - train_model
+Training - train_model load training df (15, 5) ...
+Training - train_model fitting model LogisticRegression(random_state=0) ...
+Training - train_model saving model to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/trainedmodel.pkl ...
+*** Full process - scoring retrained model ...
+Scoring - score_model load model LogisticRegression(random_state=0) ...
+Scoring - score_model load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Scoring - score_model f1 score 0.6666666666666666 ...
+*** Full process - checking scores ... 
+- new score 0.6666666666666666 
+- old score 0.5714285714285715
+*** Full process - model has not drifted ... exiting !
+
+
+*** Full process - 2021-10-16 13:50:02.288319 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+- new files:['dataset2.csv', 'dataset1.csv'] 
+*** Full process - new files found to ingest ... ['dataset2.csv', 'dataset1.csv']
+Ingestion - merge_multiple_dataframe for directories ['/practicedata/']
+Ingestion - merge_multiple_dataframe merging files ['dataset2.csv', 'dataset1.csv']
+Ingestion - merge_multiple_dataframe writing de-duplicated output to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/ingesteddata/finaldata.csv
+*** Full process - checking model score ... old score 0.6666666666666666 
+*** Full process - re-training model ...
+Training - train_model
+Training - train_model load training df (19, 5) ...
+Training - train_model fitting model LogisticRegression(random_state=0) ...
+Training - train_model saving model to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/trainedmodel.pkl ...
+*** Full process - scoring retrained model ...
+Scoring - score_model load model LogisticRegression(random_state=0) ...
+Scoring - score_model load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Scoring - score_model f1 score 0.5714285714285715 ...
+*** Full process - checking scores ... 
+- new score 0.5714285714285715 
+- old score 0.6666666666666666
+*** Full process - model drift found, re-running deployment... 
+Deployment - store_model_into_pickle ...
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/logs/ingestedfiles.txt /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/logs/latestscore.txt /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/*.pkl /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+API calls - check_app_port() ... port 8000 is not open
+*** Full process - running diagnostics with new model without app ... 
+Diagnostics - model_predictions load model LogisticRegression(random_state=0) ...
+Diagnostics - model_predictions load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Diagnostics - model_predictions generating 5 predictions ...
+Diagnostics - dataframe_summary ...
+Diagnostics - dataframe_summary ...
+Diagnostics - dataframe_missing_data ...
+Diagnostics - execution_time ...
+
+
+*** Full process - 2021-10-16 13:52:02.815389 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 13:54:02.852076 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:12:02.829030 started!
+*** Full process - config files read ...     
+- input_folder_path:/sourcedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+*** Full process - new files found to ingest ... ['dataset5.csv', 'dataset3.csv', 'dataset4.csv']
+Ingestion - merge_multiple_dataframe for directories ['/sourcedata/']
+Ingestion - merge_multiple_dataframe merging files ['dataset5.csv', 'dataset3.csv', 'dataset4.csv']
+Ingestion - merge_multiple_dataframe writing de-duplicated output to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/ingesteddata/finaldata.csv
+*** Full process - checking model score ... old score 0.5714285714285715 
+*** Full process - re-training model ...
+Training - train_model
+Training - train_model load training df (15, 5) ...
+Training - train_model fitting model LogisticRegression(random_state=0) ...
+Training - train_model saving model to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/trainedmodel.pkl ...
+*** Full process - scoring retrained model ...
+Scoring - score_model load model LogisticRegression(random_state=0) ...
+Scoring - score_model load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Scoring - score_model f1 score 0.6666666666666666 ...
+*** Full process - checking scores ... 
+- new score 0.6666666666666666 
+- old score 0.5714285714285715
+*** Full process - model has not drifted ... exiting !
+
+
+*** Full process - 2021-10-16 14:13:03.125277 started!
+*** Full process - config files read ...     
+- input_folder_path:/sourcedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:14:02.392722 started!
+*** Full process - config files read ...     
+- input_folder_path:/sourcedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:15:02.578777 started!
+*** Full process - config files read ...     
+- input_folder_path:/sourcedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:16:02.756977 started!
+*** Full process - config files read ...     
+- input_folder_path:/sourcedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:17:03.069515 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+- new files:['dataset2.csv', 'dataset1.csv'] 
+*** Full process - new files found to ingest ... ['dataset2.csv', 'dataset1.csv']
+Ingestion - merge_multiple_dataframe for directories ['/practicedata/']
+Ingestion - merge_multiple_dataframe merging files ['dataset2.csv', 'dataset1.csv']
+Ingestion - merge_multiple_dataframe writing de-duplicated output to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/ingesteddata/finaldata.csv
+*** Full process - checking model score ... old score 0.6666666666666666 
+*** Full process - re-training model ...
+Training - train_model
+Training - train_model load training df (19, 5) ...
+Training - train_model fitting model LogisticRegression(random_state=0) ...
+Training - train_model saving model to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/trainedmodel.pkl ...
+*** Full process - scoring retrained model ...
+Scoring - score_model load model LogisticRegression(random_state=0) ...
+Scoring - score_model load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Scoring - score_model f1 score 0.5714285714285715 ...
+*** Full process - checking scores ... 
+- new score 0.5714285714285715 
+- old score 0.6666666666666666
+*** Full process - model drift found, re-running deployment... 
+Deployment - store_model_into_pickle ...
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/logs/ingestedfiles.txt /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/logs/latestscore.txt /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/*.pkl /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+API calls - check_app_port() ... port 8000 is not open
+*** Full process - running diagnostics with new model without app ... 
+Diagnostics - model_predictions load model LogisticRegression(random_state=0) ...
+Diagnostics - model_predictions load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Diagnostics - model_predictions generating 5 predictions ...
+Diagnostics - dataframe_summary ...
+Diagnostics - dataframe_summary ...
+Diagnostics - dataframe_missing_data ...
+Diagnostics - execution_time ...
+
+
+*** Full process - 2021-10-16 14:18:02.736776 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:19:03.023787 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:20:02.204865 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:21:02.595678 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:22:02.804792 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:23:02.959172 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:24:02.094613 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:25:02.329181 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:26:02.550429 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:27:02.704071 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:28:02.933000 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:29:02.110329 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:30:02.281952 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:31:02.420428 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:32:02.474662 started!
+*** Full process - config files read ...     
+- input_folder_path:/sourcedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+*** Full process - new files found to ingest ... ['dataset5.csv', 'dataset3.csv', 'dataset4.csv']
+Ingestion - merge_multiple_dataframe for directories ['/sourcedata/']
+Ingestion - merge_multiple_dataframe merging files ['dataset5.csv', 'dataset3.csv', 'dataset4.csv']
+Ingestion - merge_multiple_dataframe writing de-duplicated output to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/ingesteddata/finaldata.csv
+*** Full process - checking model score ... old score 0.5714285714285715 
+*** Full process - re-training model ...
+Training - train_model
+Training - train_model load training df (15, 5) ...
+Training - train_model fitting model LogisticRegression(random_state=0) ...
+Training - train_model saving model to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/trainedmodel.pkl ...
+*** Full process - scoring retrained model ...
+Scoring - score_model load model LogisticRegression(random_state=0) ...
+Scoring - score_model load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Scoring - score_model f1 score 0.6666666666666666 ...
+*** Full process - checking scores ... 
+- new score 0.6666666666666666 
+- old score 0.5714285714285715
+*** Full process - model has not drifted ... exiting !
+
+
+*** Full process - 2021-10-16 14:33:02.606564 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+- new files:['dataset2.csv', 'dataset1.csv'] 
+*** Full process - new files found to ingest ... ['dataset2.csv', 'dataset1.csv']
+Ingestion - merge_multiple_dataframe for directories ['/practicedata/']
+Ingestion - merge_multiple_dataframe merging files ['dataset2.csv', 'dataset1.csv']
+Ingestion - merge_multiple_dataframe writing de-duplicated output to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/ingesteddata/finaldata.csv
+*** Full process - checking model score ... old score 0.6666666666666666 
+*** Full process - re-training model ...
+Training - train_model
+Training - train_model load training df (19, 5) ...
+Training - train_model fitting model LogisticRegression(random_state=0) ...
+Training - train_model saving model to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/trainedmodel.pkl ...
+*** Full process - scoring retrained model ...
+Scoring - score_model load model LogisticRegression(random_state=0) ...
+Scoring - score_model load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Scoring - score_model f1 score 0.5714285714285715 ...
+*** Full process - checking scores ... 
+- new score 0.5714285714285715 
+- old score 0.6666666666666666
+*** Full process - model drift found, re-running deployment... 
+Deployment - store_model_into_pickle ...
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/logs/ingestedfiles.txt /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/logs/latestscore.txt /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/*.pkl /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+API calls - check_app_port() ... port 8000 is not open
+*** Full process - running diagnostics with new model without app ... 
+Diagnostics - model_predictions load model LogisticRegression(random_state=0) ...
+Diagnostics - model_predictions load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Diagnostics - model_predictions generating 5 predictions ...
+Diagnostics - dataframe_summary ...
+Diagnostics - dataframe_summary ...
+Diagnostics - dataframe_missing_data ...
+Diagnostics - execution_time ...
+
+
+*** Full process - 2021-10-16 14:34:02.070335 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:35:02.219646 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:36:02.323353 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:37:02.541498 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:38:02.743765 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:39:02.957167 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:40:02.303877 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:41:02.445632 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:42:02.598739 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:43:02.813731 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:44:02.988520 started!
+*** Full process - config files read ...     
+- input_folder_path:/sourcedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+*** Full process - new files found to ingest ... ['dataset5.csv', 'dataset3.csv', 'dataset4.csv']
+Ingestion - merge_multiple_dataframe for directories ['/sourcedata/']
+Ingestion - merge_multiple_dataframe merging files ['dataset5.csv', 'dataset3.csv', 'dataset4.csv']
+Ingestion - merge_multiple_dataframe writing de-duplicated output to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/ingesteddata/finaldata.csv
+*** Full process - checking model score ... old score 0.5714285714285715 
+*** Full process - re-training model ...
+Training - train_model
+Training - train_model load training df (15, 5) ...
+Training - train_model fitting model LogisticRegression(random_state=0) ...
+Training - train_model saving model to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/trainedmodel.pkl ...
+*** Full process - scoring retrained model ...
+Scoring - score_model load model LogisticRegression(random_state=0) ...
+Scoring - score_model load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Scoring - score_model f1 score 0.6666666666666666 ...
+*** Full process - checking scores ... 
+- new score 0.6666666666666666 
+- old score 0.5714285714285715
+*** Full process - model has not drifted ... exiting !
+Ingestion - merge_multiple_dataframe for directories ['/practicedata/']
+Ingestion - merge_multiple_dataframe merging files ['dataset2.csv', 'dataset1.csv']
+Ingestion - merge_multiple_dataframe writing de-duplicated output to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/ingesteddata/finaldata.csv
+Training - train_model
+Training - train_model load training df (19, 5) ...
+Training - train_model fitting model LogisticRegression(random_state=0) ...
+Training - train_model saving model to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/trainedmodel.pkl ...
+
+
+*** Full process - 2021-10-16 14:45:02.243383 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+- new files:['dataset2.csv', 'dataset1.csv'] 
+*** Full process - new files found to ingest ... ['dataset2.csv', 'dataset1.csv']
+Ingestion - merge_multiple_dataframe for directories ['/practicedata/']
+Ingestion - merge_multiple_dataframe merging files ['dataset2.csv', 'dataset1.csv']
+Ingestion - merge_multiple_dataframe writing de-duplicated output to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/ingesteddata/finaldata.csv
+*** Full process - checking model score ... old score 0.6666666666666666 
+*** Full process - re-training model ...
+Training - train_model
+Training - train_model load training df (19, 5) ...
+Training - train_model fitting model LogisticRegression(random_state=0) ...
+Training - train_model saving model to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/trainedmodel.pkl ...
+*** Full process - scoring retrained model ...
+Scoring - score_model load model LogisticRegression(random_state=0) ...
+Scoring - score_model load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Scoring - score_model f1 score 0.5714285714285715 ...
+*** Full process - checking scores ... 
+- new score 0.5714285714285715 
+- old score 0.6666666666666666
+*** Full process - model drift found, re-running deployment... 
+Deployment - store_model_into_pickle ...
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/logs/ingestedfiles.txt /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/logs/latestscore.txt /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/*.pkl /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+API calls - check_app_port() ... port 8000 is not open
+*** Full process - running diagnostics with new model without app ... 
+Diagnostics - model_predictions load model LogisticRegression(random_state=0) ...
+Diagnostics - model_predictions load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Diagnostics - model_predictions generating 5 predictions ...
+Diagnostics - dataframe_summary ...
+Diagnostics - dataframe_summary ...
+Diagnostics - dataframe_missing_data ...
+Diagnostics - execution_time ...
+Diagnostics - outdated_packages_list Package            Version  Latest    Type
+------------------ -------- --------- -----
+argon2-cffi        20.1.0   21.1.0    wheel
+bleach             4.0.0    4.1.0     wheel
+cffi               1.14.6   1.15.0    wheel
+chardet            3.0.4    4.0.0     wheel
+click              7.1.2    8.0.3     wheel
+cryptography       3.4.8    35.0.0    wheel
+debugpy            1.4.1    1.5.0     wheel
+flake8             3.9.2    4.0.1     wheel
+Flask              1.1.2    2.0.2     wheel
+gunicorn           20.0.4   20.1.0    wheel
+idna               2.10     3.3       wheel
+ipython            7.27.0   7.28.0    wheel
+ipywidgets         7.6.4    7.6.5     wheel
+itsdangerous       1.1.0    2.0.1     wheel
+Jinja2             2.11.3   3.0.2     wheel
+joblib             1.0.1    1.1.0     wheel
+jsonschema         3.2.0    4.1.0     wheel
+jupyter-client     7.0.1    7.0.6     wheel
+jupyterlab-widgets 1.0.0    1.0.2     wheel
+kiwisolver         1.3.1    1.3.2     wheel
+MarkupSafe         1.1.1    2.0.1     wheel
+matplotlib         3.3.4    3.4.3     wheel
+matplotlib-inline  0.1.2    0.1.3     wheel
+nbclient           0.5.3    0.5.4     wheel
+nbconvert          6.1.0    6.2.0     wheel
+notebook           6.4.3    6.4.4     wheel
+numpy              1.20.1   1.21.2    wheel
+pandas             1.2.2    1.3.3     wheel
+pandocfilters      1.4.3    1.5.0     wheel
+pathspec           0.7.0    0.9.0     wheel
+Pillow             8.1.0    8.4.0     wheel
+pip                21.2.2   21.3      wheel
+pycodestyle        2.7.0    2.8.0     wheel
+pyflakes           2.3.1    2.4.0     wheel
+pyOpenSSL          20.0.1   21.0.0    wheel
+pyrsistent         0.17.3   0.18.0    wheel
+python-dateutil    2.8.1    2.8.2     wheel
+pytz               2021.1   2021.3    wheel
+pyzmq              22.2.1   22.3.0    wheel
+QtPy               1.10.0   1.11.2    wheel
+regex              2021.8.3 2021.10.8 wheel
+requests           2.24.0   2.26.0    wheel
+scikit-learn       0.24.1   1.0       wheel
+scipy              1.6.1    1.7.1     wheel
+seaborn            0.11.1   0.11.2    wheel
+setuptools         58.0.4   58.2.0    wheel
+six                1.15.0   1.16.0    wheel
+terminado          0.9.4    0.12.1    wheel
+threadpoolctl      2.1.0    3.0.0     wheel
+urllib3            1.25.11  1.26.7    wheel
+Werkzeug           1.0.1    2.0.2     wheel
+...
+*** Full process - running reporting with new model without app ... 
+Reporting - generate_confusion_matrix load model LogisticRegression(random_state=0) ...
+Reporting - generate_confusion_matrix load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Reporting - generate_confusion_matrix saving confusion matrix to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/confusionmatrix2.png
+
+
+*** Full process - completed!
+
+
+*** Full process - 2021-10-16 14:46:02.751373 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:47:02.903245 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:48:02.144447 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 14:49:02.329268 started!
+*** Full process - config files read ...     
+- input_folder_path:/sourcedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+*** Full process - new files found to ingest ... ['dataset5.csv', 'dataset3.csv', 'dataset4.csv']
+Ingestion - merge_multiple_dataframe for directories ['/sourcedata/']
+Ingestion - merge_multiple_dataframe merging files ['dataset5.csv', 'dataset3.csv', 'dataset4.csv']
+Ingestion - merge_multiple_dataframe writing de-duplicated output to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/ingesteddata/finaldata.csv
+*** Full process - checking model score ... old score 0.5714285714285715 
+*** Full process - re-training model ...
+Training - train_model
+Training - train_model load training df (15, 5) ...
+Training - train_model fitting model LogisticRegression(random_state=0) ...
+Training - train_model saving model to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/trainedmodel.pkl ...
+*** Full process - scoring retrained model ...
+Scoring - score_model load model LogisticRegression(random_state=0) ...
+Scoring - score_model load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Scoring - score_model f1 score 0.6666666666666666 ...
+*** Full process - checking scores ... 
+- new score 0.6666666666666666 
+- old score 0.5714285714285715
+*** Full process - model has not drifted ... exiting !
+
+
+*** Full process - 2021-10-16 14:50:02.594268 started!
+*** Full process - config files read ...     
+- input_folder_path:/sourcedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+Ingestion - merge_multiple_dataframe for directories ['/practicedata/']
+Ingestion - merge_multiple_dataframe merging files ['dataset2.csv', 'dataset1.csv']
+Ingestion - merge_multiple_dataframe writing de-duplicated output to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/ingesteddata/finaldata.csv
+Training - train_model
+Training - train_model load training df (19, 5) ...
+Training - train_model fitting model LogisticRegression(random_state=0) ...
+Training - train_model saving model to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/trainedmodel.pkl ...
+
+
+*** Full process - 2021-10-16 14:51:02.745962 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset5.csv', 'dataset3.csv', 'dataset4.csv'] 
+- new files:['dataset2.csv', 'dataset1.csv'] 
+*** Full process - new files found to ingest ... ['dataset2.csv', 'dataset1.csv']
+Ingestion - merge_multiple_dataframe for directories ['/practicedata/']
+Ingestion - merge_multiple_dataframe merging files ['dataset2.csv', 'dataset1.csv']
+Ingestion - merge_multiple_dataframe writing de-duplicated output to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/ingesteddata/finaldata.csv
+*** Full process - checking model score ... old score 0.6666666666666666 
+*** Full process - re-training model ...
+Training - train_model
+Training - train_model load training df (19, 5) ...
+Training - train_model fitting model LogisticRegression(random_state=0) ...
+Training - train_model saving model to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/trainedmodel.pkl ...
+*** Full process - scoring retrained model ...
+Scoring - score_model load model LogisticRegression(random_state=0) ...
+Scoring - score_model load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Scoring - score_model f1 score 0.5714285714285715 ...
+*** Full process - checking scores ... 
+- new score 0.5714285714285715 
+- old score 0.6666666666666666
+*** Full process - model drift found, re-running deployment... 
+Deployment - store_model_into_pickle ...
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/logs/ingestedfiles.txt /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/logs/latestscore.txt /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+cp /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/*.pkl /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/production_deployment/
+API calls - check_app_port() ... port 8000 is not open
+*** Full process - running diagnostics with new model without app ... 
+Diagnostics - model_predictions load model LogisticRegression(random_state=0) ...
+Diagnostics - model_predictions load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Diagnostics - model_predictions generating 5 predictions ...
+Diagnostics - dataframe_summary ...
+Diagnostics - dataframe_summary ...
+Diagnostics - dataframe_missing_data ...
+Diagnostics - execution_time ...
+Diagnostics - outdated_packages_list Package            Version  Latest    Type
+------------------ -------- --------- -----
+argon2-cffi        20.1.0   21.1.0    wheel
+bleach             4.0.0    4.1.0     wheel
+cffi               1.14.6   1.15.0    wheel
+chardet            3.0.4    4.0.0     wheel
+click              7.1.2    8.0.3     wheel
+cryptography       3.4.8    35.0.0    wheel
+debugpy            1.4.1    1.5.0     wheel
+flake8             3.9.2    4.0.1     wheel
+Flask              1.1.2    2.0.2     wheel
+gunicorn           20.0.4   20.1.0    wheel
+idna               2.10     3.3       wheel
+ipython            7.27.0   7.28.0    wheel
+ipywidgets         7.6.4    7.6.5     wheel
+itsdangerous       1.1.0    2.0.1     wheel
+Jinja2             2.11.3   3.0.2     wheel
+joblib             1.0.1    1.1.0     wheel
+jsonschema         3.2.0    4.1.0     wheel
+jupyter-client     7.0.1    7.0.6     wheel
+jupyterlab-widgets 1.0.0    1.0.2     wheel
+kiwisolver         1.3.1    1.3.2     wheel
+MarkupSafe         1.1.1    2.0.1     wheel
+matplotlib         3.3.4    3.4.3     wheel
+matplotlib-inline  0.1.2    0.1.3     wheel
+nbclient           0.5.3    0.5.4     wheel
+nbconvert          6.1.0    6.2.0     wheel
+notebook           6.4.3    6.4.4     wheel
+numpy              1.20.1   1.21.2    wheel
+pandas             1.2.2    1.3.3     wheel
+pandocfilters      1.4.3    1.5.0     wheel
+pathspec           0.7.0    0.9.0     wheel
+Pillow             8.1.0    8.4.0     wheel
+pip                21.2.2   21.3      wheel
+pycodestyle        2.7.0    2.8.0     wheel
+pyflakes           2.3.1    2.4.0     wheel
+pyOpenSSL          20.0.1   21.0.0    wheel
+pyrsistent         0.17.3   0.18.0    wheel
+python-dateutil    2.8.1    2.8.2     wheel
+pytz               2021.1   2021.3    wheel
+pyzmq              22.2.1   22.3.0    wheel
+QtPy               1.10.0   1.11.2    wheel
+regex              2021.8.3 2021.10.8 wheel
+requests           2.24.0   2.26.0    wheel
+scikit-learn       0.24.1   1.0       wheel
+scipy              1.6.1    1.7.1     wheel
+seaborn            0.11.1   0.11.2    wheel
+setuptools         58.0.4   58.2.0    wheel
+six                1.15.0   1.16.0    wheel
+terminado          0.9.4    0.12.1    wheel
+threadpoolctl      2.1.0    3.0.0     wheel
+urllib3            1.25.11  1.26.7    wheel
+Werkzeug           1.0.1    2.0.2     wheel
+...
+*** Full process - running reporting with new model without app ... 
+Reporting - generate_confusion_matrix load model LogisticRegression(random_state=0) ...
+Reporting - generate_confusion_matrix load test file /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/testdata/testdata.csv ...
+Reporting - generate_confusion_matrix saving confusion matrix to /home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/models/confusionmatrix2.png
+
+
+*** Full process - completed!
+
+
+*** Full process - 2021-10-16 14:52:02.478860 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
