@@ -2469,3 +2469,111 @@ Reporting - generate_confusion_matrix saving confusion matrix to /home/cmc265/ud
 - old files:['dataset2.csv', 'dataset1.csv'] 
 - new files:[] 
 *** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 16:59:02.087668 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 17:00:02.443707 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 17:01:02.675074 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 17:02:02.804914 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 17:03:03.003965 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 17:04:02.186732 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 17:05:02.317615 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 17:06:02.520532 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
+
+
+*** Full process - 2021-10-16 17:07:02.738637 started!
+*** Full process - config files read ...     
+- input_folder_path:/practicedata/ 
+- output_folder_path:/ingesteddata/ 
+- logs_folder_path:/logs/ 
+- prod_deployment_path:/production_deployment/
+*** Full process - checking files to ingest... 
+- old files:['dataset2.csv', 'dataset1.csv'] 
+- new files:[] 
+*** Full process - no new files found to ingest ... exiting !
