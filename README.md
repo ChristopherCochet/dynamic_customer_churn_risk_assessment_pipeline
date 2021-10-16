@@ -31,7 +31,7 @@ The different component of the pipeline are:
 ├── apicalls.py
 ├── app.py
 ├── config.json
-├── cron.config
+├── cron.cfg -- export of the `crontab -l`
 ├── cron.py
 ├── deployment.py
 ├── diagnostics.py

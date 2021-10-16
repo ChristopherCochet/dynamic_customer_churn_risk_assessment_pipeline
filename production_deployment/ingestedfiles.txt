@@ -1,1 +1,1 @@
-['dataset2.csv', 'dataset1.csv']
+['/home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/practicedata/dataset2.csv', '/home/cmc265/udacity/mlops-nanodegree/dynamic_customer_churn_risk_assessment_pipeline/practicedata/dataset1.csv']

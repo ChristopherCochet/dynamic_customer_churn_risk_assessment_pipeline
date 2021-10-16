@@ -14,7 +14,7 @@ from datetime import datetime
 
 print("\n\n*** Full process - {} started!".format(datetime.now()))
 
-######### read config files
+# read config files
 with open("config.json", "r") as f:
     config = json.load(f)
 
@@ -26,12 +26,13 @@ prod_deployment_path = os.path.join(config["prod_deployment_path"])
 
 print(
     "*** Full process - config files read ... \
-    \n- input_folder_path:{} \n- output_folder_path:{} \n- logs_folder_path:{} \n- prod_deployment_path:{}".format(
+    \n- input_folder_path:{} \n- output_folder_path:{} \n- logs_folder_path:{} \
+    \n- prod_deployment_path:{}".format(
         input_folder_path, output_folder_path, logs_folder_path, prod_deployment_path
     )
 )
 
-##################Check and read new data
+# Check and read new data
 # first, read
 new_files_to_ingest = []
 ingested_file = os.getcwd() + logs_folder_path + "ingestedfiles.txt"
@@ -39,7 +40,8 @@ ingested_file = os.getcwd() + logs_folder_path + "ingestedfiles.txt"
 # if files have never been ingested and the model never trained then run the full process end to end once
 if not os.path.exists(ingested_file):
     print(
-        "*** Full process - ingestion log file not found ... {}, running full process for the first time".format(
+        "*** Full process - ingestion log file not found ... {}, \
+            running full process for the first time".format(
             ingested_file
         )
     )
@@ -70,7 +72,7 @@ print(
     )
 )
 
-##################Deciding whether to proceed, part 1
+# Deciding whether to proceed
 # if you found new data, you should proceed. otherwise, do end the process here
 if len(new_files_to_ingest) == 0:
     print("*** Full process - no new files found to ingest ... exiting !")
@@ -84,7 +86,7 @@ else:
     ingestion.merge_multiple_dataframe()
 
 
-##################Checking for model drift
+# Checking for model drift
 # check whether the score from the deployed model is different from the score from the model that uses the newest ingested data
 score_file = os.getcwd() + logs_folder_path + "latestscore.txt"
 with open(score_file, "r") as file:
@@ -113,18 +115,18 @@ print(
 )
 drift = latest_score < np.min(old_score_list)
 
-##################Deciding whether to proceed, part 2
+# Deciding whether to proceed, part 2
 # if you found model drift, you should proceed. otherwise, do end the process here
 if not drift:
     print("*** Full process - model has not drifted ... exiting !")
     exit(0)
 
-##################Re-deployment
+# Re-deployment
 # if you found evidence for model drift, re-run the deployment.py script
 print("*** Full process - model drift found, re-running deployment... ")
 deployment.store_model_into_pickle()
 
-##################Diagnostics and reporting
+# Diagnostics and reporting
 # run diagnostics.py and reporting.py for the re-deployed model
 # check is API is deployed - if so run diagnostic on API, if not run diagnostics on local files
 if apicalls.check_app_port():

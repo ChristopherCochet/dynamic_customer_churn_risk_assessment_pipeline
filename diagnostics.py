@@ -5,7 +5,7 @@ import json
 import pickle
 import subprocess
 
-##################Load config.json and get environment variables
+# Load config.json and get environment variables
 with open("config.json", "r") as f:
     config = json.load(f)
 
@@ -14,20 +14,19 @@ prod_deployment_path = os.path.join(config["prod_deployment_path"])
 output_folder_path = config["output_folder_path"]
 logs_folder_path = config["logs_folder_path"]
 
-##################Function to get model predictions
-def model_predictions(datafile=None):
+# Function to get model predictions
+def model_predictions(model=None, datafile=None):
     # read the deployed model and a test dataset, calculate predictions
-
     features_var = ["lastmonth_activity", "lastyear_activity", "number_of_employees"]
-    target_var = "exited"
 
-    # load model
-    model_name_file = "trainedmodel.pkl"
-    with open(os.getcwd() + prod_deployment_path + model_name_file, "rb") as file:
-        model = pickle.load(file)
-    print("Diagnostics - model_predictions load model {} ...".format(model))
+    # load model if needed
+    if model is None:
+        model_name_file = "trainedmodel.pkl"
+        with open(os.getcwd() + prod_deployment_path + model_name_file, "rb") as file:
+            model = pickle.load(file)
+        print("Diagnostics - model_predictions load model {} ...".format(model))
 
-    # read in trainig data
+    # read in training data
     if datafile is None:
         datafile = os.getcwd() + test_data_path + "testdata.csv"
         test_df = pd.read_csv(datafile)
@@ -35,9 +34,8 @@ def model_predictions(datafile=None):
         test_df = pd.read_csv(datafile)
     print("Diagnostics - model_predictions load test file {} ...".format(datafile))
 
-    # define X & Y
+    # define X
     X = test_df[features_var]
-    y = test_df[target_var]
 
     # retrieve predictions
     predicted = model.predict(X)
@@ -46,12 +44,12 @@ def model_predictions(datafile=None):
             len(predicted)
         )
     )
-    # return value should be a list containing all predictions
 
+    # return value should be a list containing all predictions
     return predicted.tolist()
 
 
-##################Function to get summary statistics
+# Function to get summary statistics
 def dataframe_summary():
     # calculate summary statistics here
     features_var = ["lastmonth_activity", "lastyear_activity", "number_of_employees"]
@@ -59,24 +57,25 @@ def dataframe_summary():
     # read in the data file
     data_file = os.getcwd() + output_folder_path + "finaldata.csv"
     data_df = pd.read_csv(data_file)
-    print("Diagnostics - dataframe_summary ...")
 
     # summary statistics here - means, medians, and standard deviation
     statistics_list = data_df[features_var].mean().to_list()
     statistics_list.append(data_df[features_var].median().to_list())
     statistics_list.append(data_df[features_var].std().to_list())
+    # statistics_df = data_df[features_var].agg(["mean", "median", "std"])
+    # statistics_list = statistics_df.apply(list)
+    print(f"Diagnostics - dataframe_summary ... stats = {statistics_list}")
 
-    return [
-        statistics_list
-    ]  # return value should be a list containing all summary statistics
+    # return value should be a list containing all summary statistics
+    return statistics_list
 
 
-##################Function to get missing data
+# Function to get missing data
 def dataframe_missing_data():
     # Count the number of NA values in each column of your dataset
     # Then, calculate what percent of each column consists of NA values
 
-    print("Diagnostics - dataframe_summary ...")
+    print("Diagnostics - dataframe_missing_data ...")
 
     # read in the data file
     data_file = os.getcwd() + output_folder_path + "finaldata.csv"
@@ -88,7 +87,7 @@ def dataframe_missing_data():
     return res.to_list()
 
 
-##################Function to get timings
+# Function to get timings
 def execution_time():
     # calculate timing of training.py and ingestion.py
     print("Diagnostics - execution_time ...")
@@ -107,7 +106,7 @@ def execution_time():
     ]  # return a list of 2 timing values in seconds
 
 
-##################Function to check dependencies
+# Function to check dependencies
 def outdated_packages_list():
     # get a list of outdated dependencies
     outdated = subprocess.check_output(["pip", "list", "--outdated"])

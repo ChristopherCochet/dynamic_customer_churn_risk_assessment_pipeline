@@ -1,15 +1,8 @@
-from flask import Flask, session, jsonify, request
-import pandas as pd
-import numpy as np
-import pickle
 import os
-from sklearn import metrics
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
 import json
+import shutil
 
-
-##################Load config.json and correct path variable
+# Load config.json and correct path variable
 with open("config.json", "r") as f:
     config = json.load(f)
 
@@ -17,39 +10,26 @@ prod_deployment_path = os.path.join(config["prod_deployment_path"])
 logs_folder_path = config["logs_folder_path"]
 model_path = os.path.join(config["output_model_path"])
 
-####################function for deployment
+# function for deployment
 def store_model_into_pickle():
-    # copy the latest pickle file, the latestscore.txt value, and the ingestfiles.txt file into the deployment directory
+    # copy the latest pickle file, the latestscore.txt value, and
+    # the ingestfiles.txt file into the deployment directory
     print("Deployment - store_model_into_pickle ...")
+    target_path = os.getcwd() + prod_deployment_path
 
     # Copy files to production_deployment directory
-    cmd = (
-        "cp "
-        + os.getcwd()
-        + logs_folder_path
-        + "ingestedfiles.txt "
-        + os.getcwd()
-        + prod_deployment_path
-    )
-    print(cmd)
-    os.system(cmd)
+    f1 = os.getcwd() + logs_folder_path + "ingestedfiles.txt"
+    f2 = os.getcwd() + logs_folder_path + "latestscore.txt"
+    files_to_copy = [f1, f2]
+    for f in files_to_copy:
+        print(f"Deployment - store_model_into_pickle copying {f} to \n  {target_path}")
+        shutil.copy2(f, target_path)
 
-    cmd = (
-        "cp "
-        + os.getcwd()
-        + logs_folder_path
-        + "latestscore.txt "
-        + os.getcwd()
-        + prod_deployment_path
-    )
-    print(cmd)
-    os.system(cmd)
-
-    cmd = (
-        "cp " + os.getcwd() + model_path + "*.pkl " + os.getcwd() + prod_deployment_path
-    )
-    print(cmd)
-    os.system(cmd)
+    f3 = os.getcwd() + model_path + "trainedmodel.pkl"
+    files_to_copy = [f3]
+    for f in files_to_copy:
+        print(f"Deployment - store_model_into_pickle copying {f} to \n  {target_path}")
+        shutil.copy2(f, target_path)
 
 
 if __name__ == "__main__":

@@ -1,10 +1,9 @@
 import pandas as pd
-import numpy as np
 import os
+import glob
 import json
-from datetime import datetime
 
-#############Load config.json and get input and output paths
+# Load config.json and get input and output paths
 with open("config.json", "r") as f:
     config = json.load(f)
 
@@ -12,32 +11,27 @@ input_folder_path = config["input_folder_path"]
 output_folder_path = config["output_folder_path"]
 logs_folder_path = config["logs_folder_path"]
 
-#############Function for data ingestion
+# Function for data ingestion
 def merge_multiple_dataframe():
     # check for datasets, compile them together, and write to an output file
-    directories = [input_folder_path]
+    input_folder = os.getcwd() + input_folder_path
     final_dataframe = None
-    print("Ingestion - merge_multiple_dataframe for directories {}".format(directories))
+    print(
+        "Ingestion - merge_multiple_dataframe for directory \n  {}".format(input_folder)
+    )
 
     # create a single dataframe from files read
-    for directory in directories:
-        filenames = os.listdir(os.getcwd() + directory)
-        print("Ingestion - merge_multiple_dataframe merging files {}".format(filenames))
+    filenames = glob.glob(f"{input_folder}/*.csv")
+    print(
+        "Ingestion - merge_multiple_dataframe ingestings files \n  {}".format(filenames)
+    )
+    final_dataframe = pd.concat(map(pd.read_csv, filenames))
 
-        for each_filename in filenames:
-            if final_dataframe is None:
-                currentdf = pd.read_csv(os.getcwd() + directory + each_filename)
-                final_dataframe = currentdf
-            else:
-                final_dataframe = final_dataframe.append(currentdf).reset_index(
-                    drop=True
-                )
-
-    # write dataframe to output csv file and directory
+    # write the dedup dataframe to output csv file and directory
     output_path = os.getcwd() + output_folder_path
     output_file = output_path + "finaldata.csv"
     print(
-        "Ingestion - merge_multiple_dataframe writing de-duplicated output to {}".format(
+        "Ingestion - merge_multiple_dataframe writing de-duplicated output to \n  {}".format(
             output_file
         )
     )

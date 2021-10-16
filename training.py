@@ -1,14 +1,10 @@
-from flask import Flask, session, jsonify, request
 import pandas as pd
-import numpy as np
 import pickle
 import os
-from sklearn import metrics
-from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 import json
 
-###################Load config.json and get path variables
+# Load config.json and get path variables
 with open("config.json", "r") as f:
     config = json.load(f)
 
@@ -16,7 +12,7 @@ dataset_csv_path = os.path.join(config["output_folder_path"])
 model_path = os.path.join(config["output_model_path"])
 logs_folder_path = config["logs_folder_path"]
 
-#################Function for training the model
+# Function for training the model
 def train_model():
 
     print("Training - train_model")
@@ -24,7 +20,7 @@ def train_model():
     features_var = ["lastmonth_activity", "lastyear_activity", "number_of_employees"]
     target_var = "exited"
 
-    # read in trainig data
+    # read in trainng data
     train_file = os.getcwd() + dataset_csv_path + "finaldata.csv"
     training_df = pd.read_csv(train_file)
     print("Training - train_model load training df {} ...".format(training_df.shape))
@@ -68,12 +64,9 @@ def train_model():
 
     # track saved model file
     log_file = os.getcwd() + logs_folder_path + "model.txt"
-    log_str = (
-        "Training - train_model() - model : "
-        + os.getcwd()
-        + model_path
-        + model_name_file
-    )
+    log_str = f"Training - train_model() - model : \
+            {os.getcwd()} {model_path} {model_name_file}"
+
     with open(log_file, "w") as file:
         file.write(log_str)
 
