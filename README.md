@@ -225,7 +225,7 @@ The different flask endpoints can be tested using the ``apicalls.py `` file:
 <img src="images/deployed_flask_app.JPG">
 
 ## 6. Process Automation
-Uses a script and cron job (calls the ``cron.py`` file) that automatically run all previous steps and model re-training and re-deployment logic at regular 10 minute intervals. 
+Uses a script and cron job (refer to ``cron.config`` file which calls ``cron.py``) which automatically run all previous steps and model re-training and re-deployment logic at regular 10 minute intervals. 
 
 ```bash
 > python fullprocess.py
